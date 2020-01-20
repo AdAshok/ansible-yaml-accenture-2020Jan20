@@ -1,0 +1,73 @@
+    1  apt-get update ; apt-get install ansible -y
+    2  ansible -v 
+    3  ansible -version
+    4  ansible --version
+    5  git clone https://github.com/amitvashisttech/ansible-yaml-accenture-2020Jan20.git
+    6  ls
+    7  cd ansible-yaml-accenture-2020Jan20/
+    8  ls
+    9  cd ..
+   10  ls
+   11  mkdir ansible
+   12  ls
+   13  cd ansible
+   14  ls
+   15  01-Inventory
+   16  mkdir 01-Inventory
+   17  ls
+   18  cd 01-Inventory/
+   19  ls
+   20  vim inventory
+   21  ip addr 
+   22  vi inventory 
+   23  cat inventory 
+   24  ssh vagrant@172.31.0.11
+   25  ssh root@172.31.0.11
+   26  ssh vagrant@172.31.0.12
+   27  ls
+   28  ssh vagrant@172.31.0.11
+   29  ls
+   30  cat inventory 
+   31  ansible all -i inventory -m ping -u vagrant -k 
+   32  apt-get install sshpass -y 
+   33  ansible all -i inventory -m ping -u vagrant -k 
+   34  apt-get install python -y
+   35  ansible all -i inventory -m ping -u vagrant -k 
+   36  cat inventory 
+   37  pwd
+   38  vi /etc/ssh/sshd_config 
+   39  cat inventory 
+   40  ansible all -i inventory -m ping -u vagrant -k 
+   41  ssh vagrant@172.31.0.10
+   42  service sshd restart
+   43  ssh vagrant@172.31.0.10
+   44  ansible all -i inventory -m ping -u vagrant -k 
+   45  ansible all -i inventory -m command -a "df -h" -u vagrant -k 
+   46  ansible all -i inventory -m command -a "uname -a" -u vagrant -k 
+   47  uname  -a 
+   48  cat /etc/*-release 
+   49  df -h 
+   50  ansible all -i inventory -m command -a "cat /etc/*-release" -u vagrant -k 
+   51  ansible all -i inventory -m shell -a "cat /etc/*-release" -u vagrant -k 
+   52  history 
+   53  ls
+   54  cat inventory 
+   55  vim inventory 
+   56  ansible all -i inventory -m command -a "cat /etc/*-release" -u vagrant -k 
+   57  ansible all -i inventory -m command -a "uname -a" -u vagrant -k 
+   58  ansible web -i inventory -m command -a "uname -a" -u vagrant -k 
+   59  ansible db -i inventory -m command -a "uname -a" -u vagrant -k 
+   60  ansible db:web -i inventory -m command -a "uname -a" -u vagrant -k 
+   61  ls
+   62  cd ..
+   63  ls
+   64  cd ..
+   65  ls
+   66  cp -rf ansible ansible-yaml-accenture-2020Jan20/
+   67  ls
+   68  cd ansible-yaml-accenture-2020Jan20/
+   69  ls
+   70  cd ansible/
+   71  ls
+   72  history Day_History.txt
+   73  history > Day_History.txt
