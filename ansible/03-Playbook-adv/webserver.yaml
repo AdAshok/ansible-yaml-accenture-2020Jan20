@@ -1,0 +1,50 @@
+---
+# This is Yaml Playbook Demo
+- hosts: web
+  become: yes 
+  tasks:
+  - name: Install Apache Packages
+    apt: name=apache2 state=present 
+
+  - name: Create a Sample Foo File
+    file: path=/tmp/foo.conf owner=root group=vagrant mode=0750 state=touch
+  
+  - name: Git Clone Amit Repo
+    git: repo=https://github.com/amitvashisttech/ansible-yaml-accenture-2020Jan20.git dest=/tmp/gitrepo-av
+
+
+# This is going to be my second Play
+- hosts: db
+  become: yes 
+  tasks:
+  - name: Create a Sample Foo File
+    file: path=/tmp/amit.conf owner=vagrant group=vagrant mode=0700 state=touch
+
+  - name: Copy the File to Remote Host
+    copy:
+      dest: "/tmp/remote_file.txt"
+      content: > 
+        Thank You
+        Amit Vashist
+        Email- amitvashist7@gmail.com
+  
+  - name: Copy the File to Remote Host-2
+    copy:
+      dest: "/tmp/remote_file-2.txt"
+      content: |
+        Thank You
+        Amit Vashist
+        Email- amitvashist7@gmail.com
+
+
+# This is going to be my thir Play running a loop
+- hosts: web
+  become: yes 
+  tasks:
+  - name: Let run a loop
+    debug: msg="Look Item No - {{ item }}"
+    with_items: 
+      - 1 
+      - 5 
+      - 10
+

@@ -1,0 +1,22 @@
+---
+# Play running with item
+- hosts: web
+  become: yes 
+  tasks:
+  - name: Create a Group
+    group: name=staff state=present
+
+  - name: Let add couple of users
+    user:
+      name: "{{item.name}}"
+      groups: "{{item.groups}}"
+      uid: "{{item.uid}}"
+      state: present
+    with_items: 
+      - {name: testuser10, uid: 1020, groups: "wheel,vagrant"}
+      - {name: testuser11, uid: 1021, groups: "wheel"}
+      - {name: testuser12, uid: 1022, groups: "vagrant"}
+      - {name: testuser13, uid: 1023, groups: "wheel,staff"}
+      
+     
+

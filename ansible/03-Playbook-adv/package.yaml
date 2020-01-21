@@ -1,0 +1,19 @@
+---
+# Play running with item
+- hosts: web
+  become: yes 
+  tasks:
+  - name: Create a Group
+    group: name=wheel state=present
+
+  - name: Let add couple of users
+    apt:
+      name: "{{item}}"
+      state: present
+    with_items: 
+      - ansible
+      - sshpass
+      - python
+      - vim
+     
+
