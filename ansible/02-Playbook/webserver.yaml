@@ -17,3 +17,19 @@
   tasks:
   - name: Create a Sample Foo File
     file: path=/tmp/amit.conf owner=vagrant group=vagrant mode=0700 state=touch
+
+  - name: Copy the File to Remote Host
+    copy:
+      dest: "/tmp/remote_file.txt"
+      content: > 
+        Thank You
+        Amit Vashist
+        Email- amitvashist7@gmail.com
+  
+  - name: Copy the File to Remote Host-2
+    copy:
+      dest: "/tmp/remote_file-2.txt"
+      content: |
+        Thank You
+        Amit Vashist
+        Email- amitvashist7@gmail.com
