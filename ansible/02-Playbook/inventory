@@ -13,6 +13,11 @@
 [ansible]
 172.31.0.10
 
-[web:vars]
+[dc:children]
+web
+db
+ansible
+
+[dc:vars]
 ansible_ssh_user=vagrant
 ansible_ssh_pass=vagrant

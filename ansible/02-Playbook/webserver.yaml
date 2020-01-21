@@ -1,8 +1,19 @@
 ---
-
+# This is Yaml Playbook Demo
 - hosts: web
-  
-
+  become: yes 
   tasks:
   - name: Install Apache Packages
-    apt: name=apache2 state=present
+    apt: name=apache2 state=present 
+
+  - name: Create a Sample Foo File
+    file: path=/tmp/foo.conf owner=root group=vagrant mode=0750 state=touch
+
+
+
+# This is going to be my second Play
+- hosts: db
+  become: yes 
+  tasks:
+  - name: Create a Sample Foo File
+    file: path=/tmp/amit.conf owner=vagrant group=vagrant mode=0700 state=touch
