@@ -1,16 +1,18 @@
 ---
 # This is Yaml Playbook Demo
 - hosts: web
-  become: yes 
+  become: yes
+  vars:
+    doc_dir: "/var/www/html" 
   tasks:
   - name: Install Apache Packages
     apt: name=apache2 state=present 
 
   - name: Deploy Custome Home Page
-    copy: src=files/index.html dest=/var/www/html/index.html
+    copy: src=files/index.html dest={{doc_dir}}/index.html
 
   - name: Deploy Custome Home Page
-    copy: src=files/jenkins.html dest=/var/www/html/jenkins.html
+    copy: src=files/jenkins.html dest={{doc_dir}}/jenkins.html
 
   - name: Deploy Custome Home Page
-    copy: src=files/myapp.html dest=/var/www/html/myapp.html
+    copy: src=files/myapp.html dest={{doc_dir}}/myapp.html
