@@ -3,10 +3,13 @@
 - hosts: web
   become: yes
   vars:
-    doc_dir: "/var/www/html" 
+    doc_dir: "/var/www/html/accenture" 
   tasks:
   - name: Install Apache Packages
     apt: name=apache2 state=present 
+
+  - name: Create Product Dir.
+    file: path={{doc_dir}} state=directory
 
   - name: Deploy Custome Home Page
     copy: src=files/index.html dest={{doc_dir}}/index.html
