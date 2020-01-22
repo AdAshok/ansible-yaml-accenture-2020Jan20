@@ -4,9 +4,6 @@
   become: yes
   vars:
     doc_dir: "/var/www/html/accenture"
-  vars_prompt:
-  - name: username
-    prompt: What is your name ?
  
   tasks:
   - name: Install Apache Packages

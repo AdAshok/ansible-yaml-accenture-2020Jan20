@@ -1,0 +1,12 @@
+---
+# This is going to be my thir Play running a loop
+- hosts: web
+  become: yes 
+  tasks:
+  - name: Let run a loop
+    debug: msg="Look Item No - {{ item }}"
+    with_items: 
+      - 1 
+      - 5 
+      - 10
+
