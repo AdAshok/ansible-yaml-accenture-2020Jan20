@@ -1,0 +1,24 @@
+---
+# This is Yaml Playbook Demo
+- hosts: web:db
+  become: yes
+  vars:
+    doc_dir: "/var/www/html/accenture" 
+  tasks:
+  - name: Install Apache Packages
+    apt: name=apache2 state=present 
+
+  - name: Create Product Dir.
+    file: path={{doc_dir}} state=directory
+
+  - name: Deploy Custome Home Page
+    copy: src=files/index.html dest={{doc_dir}}/index.html
+
+  - name: Deploy Custome Home Page
+    copy: src=files/jenkins.html dest={{doc_dir}}/jenkins.html
+
+  - name: Deploy Custome Home Page
+    copy: src=files/myapp.html dest={{doc_dir}}/myapp.html
+
+  - name: Deploy Info Page Page
+    template: src=templates/info.j2 dest={{doc_dir}}/info.html
